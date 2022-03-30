@@ -20,6 +20,10 @@ const db = mysql.createConnection(
   console.log("Connected to the election database")
 );
 
+db.query("SELECT * FROM candidates", (err, rows) => {
+  console.log(rows);
+});
+
 //Default response for any other request (NOT FOUND)
 //This route will override all others—so make sure that this is the last one.
 app.use((req, res) => {
